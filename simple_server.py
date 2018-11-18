@@ -5,4 +5,11 @@ __date__ = '2018/11/18 17:53'
 from flask import Flask
 
 app = Flask(__name__)
+
+
+@app.route('/hello')
+def hello():
+    return 'Hello, Nana!!!'
+
+
 app.run()
