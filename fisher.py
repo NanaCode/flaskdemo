@@ -5,7 +5,7 @@ __author__ = 'Nana'
 __date__ = '2018/11/20 11:43'
 
 import json
-from flask import Flask, make_response
+from flask import Flask, make_response, jsonify
 from helper import is_key_or_isbn
 
 app = Flask(__name__)
@@ -25,7 +25,8 @@ def search(q, page):
     else:
         result = YuShuBook.search_by_keyword(q)
     # return json.dumps(result)  # 纯文本
-    return json.dumps(result), 200, {"content-type": "application/json"}  # 格式化
+    # return json.dumps(result), 200, {"content-type": "application/json"}  # 格式化
+    return jsonify(result)
 
 
 if __name__ == '__main__':
