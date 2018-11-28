@@ -3,6 +3,7 @@ __author__ = 'Nana'
 __date__ = '2018/11/26 7:25'
 
 from flask import jsonify
+from fisher import app
 from helper import is_key_or_isbn
 from yushu_book import YuShuBook
 
