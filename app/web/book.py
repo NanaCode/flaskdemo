@@ -8,6 +8,7 @@ from helper import is_key_or_isbn
 from yushu_book import YuShuBook
 
 
+print(id(app))
 @app.route('/book/search/<q>/<page>')
 def search(q, page):
     """
