@@ -8,7 +8,8 @@ from helper import is_key_or_isbn
 from yushu_book import YuShuBook
 
 
-print(id(app))
+# print(id(app))
+print('id为'+str(id(app))+'的app注册路由')
 @app.route('/book/search/<q>/<page>')
 def search(q, page):
     """
