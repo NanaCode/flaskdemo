@@ -2,15 +2,14 @@
 __author__ = 'Nana'
 __date__ = '2018/11/26 7:25'
 
-from flask import jsonify
-from fisher import app
+from flask import jsonify, Blueprint
 from helper import is_key_or_isbn
 from yushu_book import YuShuBook
 
+web = Blueprint('web', __name__)
 
-# print(id(app))
-print('id为'+str(id(app))+'的app注册路由')
-@app.route('/book/search/<q>/<page>')
+
+@web.route('/book/search/<q>/<page>')
 def search(q, page):
     """
     :param q: 普通关键字 isbn
