@@ -7,8 +7,8 @@ from flask import Flask
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object('config')  # 注意，别忘了这句
-    register_blueprint(app)
+    app.config.from_object('config')  # 注意，别忘了
+    register_blueprint(app)  # 奇怪？
     return app
 
 
