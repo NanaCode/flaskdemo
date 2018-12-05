@@ -6,6 +6,7 @@ from flask import jsonify, request
 from helper import is_key_or_isbn
 from yushu_book import YuShuBook
 from . import web
+from app.forms.book import SearchForm
 
 
 @web.route('/book/search')
@@ -15,11 +16,15 @@ def search():
     :param page: start count 缩减而来
     :return:
     """
-    q = request.args['q']
-    page = request.args['page']
-    key_or_isbn = is_key_or_isbn(q)
-    if key_or_isbn == 'isbn':
-        result = YuShuBook.search_by_isbn(q)
+    form = SearchForm(request.args)
+    if form.validate():
+        q = form.q.data.strip()
+        page = form.page.data
+        key_or_isbn = is_key_or_isbn(q)
+        if key_or_isbn == 'isbn':
+            result = YuShuBook.search_by_isbn(q)
+        else:
+            result = YuShuBook.search_by_keyword(q)
+        return jsonify(result)
     else:
-        result = YuShuBook.search_by_keyword(q)
-    return jsonify(result)
+        return jsonify({"msg": "参数校验失败！"})
