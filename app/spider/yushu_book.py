@@ -1,8 +1,9 @@
 # _*_ coding: utf-8 _*_
 __author__ = 'Nana'
 __date__ = '2018/11/22 23:12'
-from httper import HTTP
 from flask import current_app
+
+from app.libs.httper import HTTP
 
 
 class YuShuBook:
