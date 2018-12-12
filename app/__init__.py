@@ -12,7 +12,7 @@ def create_app():
     app.config.from_object('app.setting')
     register_blueprint(app)
     db.init_app(app)
-    db.create_all()
+    db.create_all(app=app)
     return app
 
 
