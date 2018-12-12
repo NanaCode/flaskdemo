@@ -3,9 +3,12 @@ __author__ = 'Nana'
 __date__ = '2018/12/10 22:34'
 
 from sqlalchemy import Column, Integer, String
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 
-class Book():
+class Book(db.Model):
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(50), nullable=False)
     author = Column(String(30), default='未名')
